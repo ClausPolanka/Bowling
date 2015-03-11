@@ -19,7 +19,7 @@ namespace Bowling.Test
         }
 
         [TestCase("3:1,2,6,4,5,2", "3,18,25")]
-        [TestCase("2:1,2,6,4,5", "")]
+        [TestCase("2:1,2,6,4,5", "3,18")]
         public void Level_1(string input, string expected)
         {
             var scores = CalculateFrameScores(input);
@@ -35,6 +35,10 @@ namespace Bowling.Test
             var score = 0;
             for (var i = 0; i < rolls.Count; i += 2)
             {
+                if (scores.Count == rounds)
+                {
+                    break;
+                }
                 var frameScore = 0;
                 if (rolls[i] == 10)
                     frameScore += rolls[i] + rolls[i + 1] + rolls[i + 2];

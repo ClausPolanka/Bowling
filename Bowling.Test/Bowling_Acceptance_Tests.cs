@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace Bowling.Test
 {
     [TestFixture]
-    public class Bowling_Acceptance_Tests_Level_1
+    public class Bowling_Acceptance_Tests
     {
         [TestCase("3:1,4,6,4,7,0", "5,22,29")]
         [TestCase("3:0,0,9,1,0,0", "0,10,10")]
@@ -23,6 +23,20 @@ namespace Bowling.Test
         [TestCase("1:2,8,5", "15")]
         [TestCase("3:0,0,9,1,0,0", "0,10,10")]
         public void Level_1(string input, string expected)
+        {
+            var scores = CalculateFrameScores(input);
+            Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");
+        }
+
+        [TestCase("4:1,4,6,4,7,3,2,5", "")]
+        public void Level_2_Spec_examples(string input, string expected)
+        {
+            var scores = CalculateFrameScores(input);
+            Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");
+        }
+
+        //[TestCase("4:1,5,5,5,4,6,8,1", "")]
+        public void Level_2(string input, string expected)
         {
             var scores = CalculateFrameScores(input);
             Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");

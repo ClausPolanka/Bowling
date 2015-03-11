@@ -10,12 +10,11 @@ namespace Bowling.Test
     [TestFixture]
     public class Bowling_Acceptance_Tests_Level_1
     {
-        [Test]
-        public void Spec_example()
+        [TestCase("3:1,4,6,4,7,0", "5,22,29")]
+        public void Spec_example(string input, string expected)
         {
-            var input = "3:1,4,6,4,7,0";
             var scores = CalculateFrameScores(input);
-            Assert.That(string.Join(",", scores), Is.EqualTo("5,22,29"), "frame scores");
+            Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");
         }
 
         private static List<int> CalculateFrameScores(string input)

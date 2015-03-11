@@ -29,6 +29,7 @@ namespace Bowling.Test
         }
 
         [TestCase("4:1,4,6,4,7,3,2,5", "5,22,34,41")]
+        [TestCase("2:7,3,3,7,1", "")]
         public void Level_2_Spec_examples(string input, string expected)
         {
             var scores = CalculateFrameScores(input);

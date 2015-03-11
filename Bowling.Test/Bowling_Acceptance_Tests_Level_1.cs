@@ -15,7 +15,7 @@ namespace Bowling.Test
         {
             var input = "3:1,4,6,4,7,0";
             var scores = CalculateFrameScores(input);
-            Assert.That(string.Join(",", scores), Is.EqualTo("5,22,29"), "frame scores");
+            Assert.That(string.Join(",", scores), Is.EqualTo("-5,22,29"), "frame scores");
         }
 
         private static List<int> CalculateFrameScores(string input)

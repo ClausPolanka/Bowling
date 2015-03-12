@@ -77,8 +77,15 @@ namespace Bowling.Test
         }
 
         [TestCase("3:1,4,10,7,3,8", "5,25,43")]
-        [TestCase("2:7,3,10,1,4", "")]
+        [TestCase("2:7,3,10,1,4", "20,35")]
         public void Level_5_Spec_examples(string input, string expected)
+        {
+            var scores = CalculateFrameScores(input);
+            Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");
+        }
+
+        //[TestCase("4:1,5,10,10,1,7", "6,27,45,53")]
+        public void Level_5(string input, string expected)
         {
             var scores = CalculateFrameScores(input);
             Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");

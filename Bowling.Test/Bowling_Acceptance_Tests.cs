@@ -68,7 +68,7 @@ namespace Bowling.Test
             Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");
         }
 
-        [TestCase("4:1,5,10,10,1,7", "")]
+        [TestCase("4:1,5,10,10,1,7", "6,27,45,53")]
         //[TestCase("", "")]
         public void Level_4(string input, string expected)
         {

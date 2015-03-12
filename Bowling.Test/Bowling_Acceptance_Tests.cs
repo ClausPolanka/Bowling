@@ -60,6 +60,13 @@ namespace Bowling.Test
             Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");
         }
 
+        [TestCase("4:1,4,10,10,3,6", "")]
+        public void Level_4_Spec_examples(string input, string expected)
+        {
+            var scores = CalculateFrameScores(input);
+            Assert.That(string.Join(",", scores), Is.EqualTo(expected), "frame scores");
+        }
+
         private static List<int> CalculateFrameScores(string input)
         {
             var rounds = int.Parse(input[0].ToString());

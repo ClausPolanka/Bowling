@@ -102,8 +102,8 @@ namespace Bowling.Test
 
         private static List<int> CalculateFrameScores(string input)
         {
-            var rounds = int.Parse(input[0].ToString());
-            var rolls = input.Substring(2).Split(',').Select(int.Parse).ToList();
+            var rounds = int.Parse(input.Split(':')[0]);
+            var rolls = input.Split(':')[1].Split(',').Select(int.Parse).ToList();
 
             var scores = new List<int>();
             var score = 0;
